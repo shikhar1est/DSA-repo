@@ -3,7 +3,7 @@ package Searching;
 import java.util.*;
 class ThreeSumToZero{
     public static List<List<Integer>> findTriplets(int[] arr){
-        HashMap<Integer,List<Integer>> mp=new HashMap<>();
+        HashMap<Integer,List<Integer>> mp=new HashMap<>(); //Here, the key part is the number and the value part is the indices where it's present
         List<List<Integer>> ans=new ArrayList<List<Integer>>();
         for(int j=0;j<arr.length;j++){
             for(int k=j+1;k<arr.length;k++){
