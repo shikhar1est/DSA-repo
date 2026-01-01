@@ -44,14 +44,14 @@ public class DijkstraAlgorithm {
 
     public static void addEdge(ArrayList<ArrayList<int[]>> adj, int u, int v, int w) {
         adj.get(u).add(new int[]{v, w});
-        adj.get(v).add(new int[]{u, w}); // undirected
+        adj.get(v).add(new int[]{u, w});
     }
 
     public static void main(String[] args) {
         int v = 5;
         int src = 0;
 
-        ArrayList<ArrayList<int[]>> adjList = new ArrayList<>();
+        ArrayList<ArrayList<int[]>> adjList = new ArrayList<ArrayList<int[]>>();
         for (int i = 0; i < v; i++) {
             adjList.add(new ArrayList<>());
         }
