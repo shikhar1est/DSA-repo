@@ -55,3 +55,4 @@ public class BinaryMazeShortestBFSOptimal {
         System.out.println(shortestDistance(row,col,mat,x,y));
     }
 }
+//bfs
