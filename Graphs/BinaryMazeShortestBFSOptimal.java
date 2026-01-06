@@ -37,6 +37,7 @@ public class BinaryMazeShortestBFSOptimal {
         }
         return -1;
     }
+    //Main function
     public static void main(String[] args) {
         int[][] mat = new int[][] {
                 { 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
