@@ -46,3 +46,6 @@ public class DisjointSet {
 
     }
 }
+
+//But these find() and union() are naive and their worst time complexity is linear.
+//The trees created to represent subsets can be skewed and can become like a linked list.
