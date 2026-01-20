@@ -3,7 +3,7 @@ package DynamicProgramming;
 //The problem this algorithm solves-> MAXIMUM SUBARRAY SUM
 //Kadane reduces the complexity to O(N)
 //CORE IDEA: At every step we have to ask the question:
-//Is it better to extend the previous subarray OR to start a new subarray
+//Is it better to extend the previous subarray OR to start a new subarra
 //It contains 2 variables-> currentSum and mainSum
 //currentSum->max subarray sum ending at current index
 //mainSum->max subarray sum seen till now
