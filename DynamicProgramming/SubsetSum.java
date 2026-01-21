@@ -6,14 +6,31 @@ public class SubsetSum {
         int target=9;
         int n=arr.length;
         Boolean[][] dp=new Boolean[n+1][target+1];
-        System.out.println(SubsetMemoization(arr,target,n,dp));
+        for(int i=0;i<n+1;i++){
+            for(int j=0;j<target+1;j++){
+                if(j==0) dp[i][j]=true;
+                if(i==0 && j!=0) dp[i][j]=false;
+            }
+        }
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<target+1;j++) {
+                int curr = arr[i - 1];
+                if (curr > j) {
+                    dp[i][j] = dp[i - 1][j];
+                } else {
+                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - curr];
+
+                }
+            }
+        }
+        System.out.println(dp[n][target]);
     }
-//    public static boolean SubsetRecursion(int[] arr,int target,int n){
-//        if(target==0) return true;
-//        if(n==0) return false;
-//        if(arr[n-1]>target) return SubsetRecursion(arr,target,n-1);
-//        return SubsetRecursion(arr,target-arr[n-1],n-1) || SubsetRecursion(arr,target,n-1);
-//    }
+    public static boolean SubsetRecursion(int[] arr,int target,int n){
+        if(target==0) return true;
+        if(n==0) return false;
+        if(arr[n-1]>target) return SubsetRecursion(arr,target,n-1);
+        return SubsetRecursion(arr,target-arr[n-1],n-1) || SubsetRecursion(arr,target,n-1);
+    }
     public static boolean SubsetMemoization(int[] arr,int sum,int n,Boolean[][] dp){
         if(sum==0) return true;
         if(n==0) return false;
