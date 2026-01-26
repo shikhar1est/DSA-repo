@@ -2,6 +2,8 @@ package DynamicProgramming;
 
 //Count number of subsets with sum equal to K value
 
+//Take note of the base case
+
 public class StriverDPSeventeen {
     public static void main(String[] args) {
          int[] arr={1,2,3,3};
