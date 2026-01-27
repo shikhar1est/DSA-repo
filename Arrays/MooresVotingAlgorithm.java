@@ -21,7 +21,12 @@ public class MooresVotingAlgorithm {
             }
             if(mincount<=0) curr=arr[i];
         }
-        return curr;
+        int actual=0;
+        for(int num : arr){
+            if(num==curr) actual++;
+        }
+        if(actual>arr.length/2) return curr;
+        return -1;
     }
     public static void main(String[] args) {
         int[] arr={1, 1, 2, 1, 3, 5, 1};
