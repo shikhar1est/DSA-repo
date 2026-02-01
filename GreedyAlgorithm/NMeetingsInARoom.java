@@ -8,7 +8,6 @@ package GreedyAlgorithm;
 // by a single person or resource (like a meeting room),
 // assuming that each activity has a specific start and end time and that only one activity can happen at a time.
 
-//
 
 public class NMeetingsInARoom {
     public static void main(String[] args) {
