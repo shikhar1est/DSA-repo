@@ -5,6 +5,10 @@ import java.util.*;
 //Q->Given a sorted array of distinct elements arr[]
 // of size n that is rotated at some unknown point, the task is to find the minimum element in it.
 
+//The goal is to find the pivot point where the rotation occurs.
+// In a sorted array, every element is greater than its predecessor.
+// The minimum is the only element that is smaller than its predecessor.
+
 //We can optimize the minimum element searching by using Binary Search where we find the mid element
 // and then decide whether to stop or to go to left half or right half:
 //
