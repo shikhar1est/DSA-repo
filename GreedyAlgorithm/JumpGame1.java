@@ -30,26 +30,34 @@ public class JumpGame1 {
 
 //Memoization:
 
-    public static int canJump(int[] nums) {
-        int n=nums.length;
-        int[] dp=new int[n+1];
-        Arrays.fill(dp,-1);
-        int ans=dynamic(0,nums,dp);
-        if(ans==Integer.MAX_VALUE) return -1;
-        return ans;
-    }
-    public static int dynamic(int i,int[] arr,int[] memo){
-        if(i>=arr.length-1) return 0;
-        if(memo[i]!=-1) return memo[i];
-        int ans=Integer.MAX_VALUE;
-        for(int j=i+1;j<=i+arr[i] && j<arr.length;j++){
-            int val=dynamic(j,arr,memo);
-            if(val!=Integer.MAX_VALUE){
-                ans=Math.min(ans,1+val);
-            }
-        }
-        return memo[i]=ans;
-    }
+//    public static int canJump(int[] nums) {
+//        int n=nums.length;
+//        int[] dp=new int[n+1];
+//        Arrays.fill(dp,-1);
+//        int ans=dynamic(0,nums,dp);
+//        if(ans==Integer.MAX_VALUE) return -1;
+//        return ans;
+//    }
+//    public static int dynamic(int i,int[] arr,int[] memo){
+//        if(i>=arr.length-1) return 0;
+//        if(memo[i]!=-1) return memo[i];
+//        int ans=Integer.MAX_VALUE;
+//        for(int j=i+1;j<=i+arr[i] && j<arr.length;j++){
+//            int val=dynamic(j,arr,memo);
+//            if(val!=Integer.MAX_VALUE){
+//                ans=Math.min(ans,1+val);
+//            }
+//        }
+//        return memo[i]=ans;
+//    }
+
+    //Can use Tabulation
+
+    //using greedy Approach
+
+    //The idea is to use greedy approach to find the minimum jumps needed to reach the end of an array.
+    // We iterate through the array and maintain two values:
+    // the maximum reachable index and the current reachable index and update them based on the array elements.
     public static void main(String[] args) {
         int[] arr={1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
         int n=arr.length;
