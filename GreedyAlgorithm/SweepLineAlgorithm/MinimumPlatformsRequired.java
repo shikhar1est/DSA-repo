@@ -34,25 +34,28 @@ package GreedyAlgorithm.SweepLineAlgorithm;
 
 public class MinimumPlatformsRequired {
     //NAIVE SOLUTION:
-    public static int minPlatform(int[] arr,int[] dep){
-        int ans=0;
-        int n=arr.length;
-        for(int i=0;i<n;i++){
-            int temp=1;
-            for(int j=0;j<n;j++){
-                if(i!=j){
-                    if(arr[j]<=arr[i] && dep[j]>=arr[i]){
-                        temp++;
-                    }
-                }
-            }
-            ans=Math.max(ans,temp);
-        }
-        return ans;
-    }
+//    public static int minPlatform(int[] arr,int[] dep){
+//        int ans=0;
+//        int n=arr.length;
+//        for(int i=0;i<n;i++){
+//            int temp=1;
+//            for(int j=0;j<n;j++){
+//                if(i!=j){
+//                    if(arr[j]<=arr[i] && dep[j]>=arr[i]){
+//                        temp++;
+//                    }
+//                }
+//            }
+//            ans=Math.max(ans,temp);
+//        }
+//        return ans;
+//    }
+
+    //[Expected Approach] Using Sorting and Two Pointers - O(n log(n)) Time and O(n) Space
+
+    //
     public static void main(String[] args) {
-        int[] arr = {1000, 935, 1100};
-        int[] dep = {1200, 1240, 1130};
-        System.out.println(minPlatform(arr, dep));
+        int[] arr = {900, 940, 950, 1100, 1500, 1800};
+        int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
     }
 }
