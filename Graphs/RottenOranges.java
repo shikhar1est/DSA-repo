@@ -9,6 +9,9 @@ package Graphs;
 // its minimum time to rot because DFS explores deeply in one direction. However, in BFS ensuring that
 // when a fresh orange becomes rotten, it is always at the earliest possible time.
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 //To apply this idea, we first add all the initially rotten oranges to a queue.
 // Then, we process them one by one from the queue. For each rotten orange, we check its four neighboring cells.
 // If a neighbor is a fresh orange (1), it becomes rotten, and we push it into the queue.
@@ -22,7 +25,41 @@ public class RottenOranges {
     public static int helper(int[][] grid){
         int m=grid.length;
         int n=grid[0].length;
-
+        Queue<int[]> q=new LinkedList<>();
+        int time=0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]==2){
+                    q.add(new int[]{i,j});
+                }
+            }
+        }
+        int[][] direction={{1,0},{-1,0},{0,1},{0,-1}};
+        while(!q.isEmpty()){
+            int sze=q.size();
+            boolean flag=false;
+            for(int i=0;i<sze;i++) {
+                int[] curr = q.poll();
+                int x = curr[0];
+                int y = curr[1];
+                for (int j = 0; j < 4; j++) {
+                    int nr = x + direction[j][0];
+                    int nc = y + direction[j][1];
+                    if (nr >= 0 && nr < m && nc >= 0 && nc < n && grid[nr][nc] == 1) {
+                        grid[nr][nc] = 2;
+                        flag = true;
+                        q.add(new int[]{nr, nc});
+                    }
+                }
+            }
+            if(flag) time++;
+        }
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]==1) return -1;
+            }
+        }
+        return time;
     }
     public static void main(String[] args) {
           int[][] grid={{2,1,1},{1,1,0},{0,1,1}};
