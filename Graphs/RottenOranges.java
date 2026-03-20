@@ -21,6 +21,9 @@ import java.util.Queue;
 // Finally, we check the grid again — if any fresh orange is still left, it means it couldn’t be reached,
 // so we return -1. Otherwise, the maximum time recorded gives us the minimum time required to rot all the
 // oranges.
+
+//flag: This tracks if any new orange caught the rot during this specific minute.
+// If no orange was turned from fresh (1) to rotten (2), we don't want to increment the timer.
 public class RottenOranges {
     public static int helper(int[][] grid){
         int m=grid.length;
