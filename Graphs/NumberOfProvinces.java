@@ -3,7 +3,6 @@ package Graphs;
 import java.util.ArrayList;
 import java.util.*;
 
-import static Graphs.BinaryMazeShortestDFS.dfs;
 
 public class NumberOfProvinces {
     public static int isConnected(int[][] edges,int V){
