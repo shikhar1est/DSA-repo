@@ -58,8 +58,18 @@ public class JumpGame1 {
     //The idea is to use greedy approach to find the minimum jumps needed to reach the end of an array.
     // We iterate through the array and maintain two values:
     // the maximum reachable index and the current reachable index and update them based on the array elements.
+    public static boolean helper(int[] nums){
+        int n=nums.length;
+        int far=0;
+        for(int i=0;i<n;i++){
+            if(far<i) return false;
+            far=Math.max(far,i+nums[i]);
+        }
+        return true;
+    }
     public static void main(String[] args) {
         int[] arr={1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
         int n=arr.length;
+        System.out.println(helper(arr));
     }
 }
