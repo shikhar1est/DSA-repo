@@ -22,8 +22,21 @@ package GreedyAlgorithm.ActivitySelectionProblems;
 //
 //->Iterate through the rest. If a meeting starts after the previous one finished, pick it and update the finish time.
 
-public class NMeetingsInARoom {
-    public static void main(String[] args) {
+import java.util.ArrayList;
 
+public class NMeetingsInARoom {
+    public static class Meeting{
+        public int start;
+        public int end;
+        public int id;
+        public Meeting(int start,int end,int id) {
+            this.start = start;
+            this.end = end;
+            this.id = id;
+        }
+    }
+    public static void main(String[] args) {
+          int[] start={10,12,20};
+          int[] end={20,25,30};
     }
 }
