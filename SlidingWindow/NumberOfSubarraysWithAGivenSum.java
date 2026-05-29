@@ -1,5 +1,7 @@
 package SlidingWindow;
 
+import java.util.HashMap;
+
 public class NumberOfSubarraysWithAGivenSum {
     public static int negandpos(int[] arr,int k){ //If the array has negative numbers, a simple sliding window
         // won't work because the window sum doesn't increase monotonically. Instead, we use Prefix Sums
@@ -23,10 +25,40 @@ public class NumberOfSubarraysWithAGivenSum {
         // Notebook: { 0: 1 time, 4: 1 time }Total Target Paths Found: 0
         //
         // Step 2: You read the second number -4.
-        // You walk backward 4 steps from where you were (4). You are now standing on 0.You want to know if you just completed a 3-step path. If you are standing on 0, the only way you just finished a 3-step path is if you previously stood on -3 (since $0 - 3 = -3$).You check your notebook: Have we ever stood on -3? No.So, you record your current spot. Since you're back at 0, it now has 2 checkmarks.Notebook: { 0: 2 times, 4: 1 time }Total Target Paths Found: 0Step 3: You read the last number 3.You walk forward 3 steps from where you were (0). You are now standing on 3.You want to know if you just completed a 3-step path. If you are standing on 3, the only way you just finished a 3-step path is if you previously stood on 0 (since $3 - 3 = 0$).You check your notebook: Have we ever stood on 0? YES! It has 2 checkmarks!What does this mean? It means twice in the past, you were standing at 0, and from those moments up until right now, your net movement was exactly 3 steps!You add those 2 checkmarks to your total success count.Total Target Paths Found: 2Look at what the array actually did:If we look at the array [4, -4, 3]:The last element [3] by itself equals 3. (That's one path).The entire array [4, -4, 3] sums up to 3. (That's the second path).The notebook successfully found both of these paths without us ever having to loop backward or guess. It just checked where we were standing (3), subtracted the target (3), and asked the notebook: "How many times did we stand at 0 before?"
+        // You walk backward 4 steps from where you were (4). You are now standing on 0.
+        // You want to know if you just completed a 3-step path. If you are standing on 0,
+        // the only way you just finished a 3-step path is if you previously stood on -3 (since $0 - 3 = -3$)
+        // .You check your notebook: Have we ever stood on -3? No.So, you record your current spot. Since you're back
+        // at 0, it now has 2 checkmarks.Notebook: { 0: 2 times, 4: 1 time }Total Target Paths Found: 0
+        // Step 3: You read the last number 3.You walk forward 3 steps from where you were (0).
+        // You are now standing on 3.You want to know if you just completed a 3-step path.
+        // If you are standing on 3, the only way you just finished a 3-step path is if you previously stood on 0
+        // (since $3 - 3 = 0$).You check your notebook:
+        // Have we ever stood on 0? YES! It has 2 checkmarks!What does this mean?
+        // It means twice in the past, you were standing at 0, and from those moments up until right now,
+        // your net movement was exactly 3 steps!You add those 2 checkmarks to your total success count.
+        // Total Target Paths Found: 2Look at what the array actually did:If we look at the array [4, -4, 3]:
+        // The last element [3] by itself equals 3. (That's one path).The entire array [4, -4, 3] sums up to 3.
+        // (That's the second path).The notebook successfully found both of these paths without us ever having
+        // to loop backward or guess. It just checked where we were standing (3), subtracted the target (3),
+        // and asked the notebook: "How many times did we stand at 0 before?"
+
+        HashMap<Integer,Integer> mp=new HashMap<>();
+        mp.put(0,1);
+        int c=0,sum=0;
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+            if(mp.containsKey(sum-k)){
+                c+=mp.get(sum-k);
+            }
+            mp.put(sum,mp.getOrDefault(sum,0)+1);
+        }
+        return c;
     }
     public static void main(String[] args){
         int[] arr1={3, 4, -7, 1, 3, 3, 1, -4}; //Negative & Positive numbers mixed
         int k1=7;
+        System.out.println(negandpos(arr1,k1));
     }
 }
