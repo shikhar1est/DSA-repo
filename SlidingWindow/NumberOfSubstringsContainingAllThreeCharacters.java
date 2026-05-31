@@ -6,4 +6,7 @@ package SlidingWindow;
 // and ending at right also contains all three.
 
 public class NumberOfSubstringsContainingAllThreeCharacters {
+    public static void main(String[] args) {
+
+    }
 }
