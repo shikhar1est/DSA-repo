@@ -25,6 +25,34 @@ public class MergeKSortedLists {
         }
         return temp.next;
     }
+    //Merge Lists 2 at a time
+    public static Node merge2SortedLists(Node list1,Node list2){
+        Node dummy=new Node(-1,null);
+        Node dummy1=dummy;
+        while(list1!=null && list2!=null){
+            if(list1.val<=list2.val){
+                dummy.next=list1;
+                list1=list1.next;
+            }else{
+                dummy.next=list2;
+                list2=list2.next;
+            }
+            dummy=dummy.next;
+        }
+        if(list1!=null){
+            dummy.next=list1;
+        }else{
+            dummy.next=list2;
+        }
+        return dummy1.next;
+    }
+    public static Node mergedLLBetter(ArrayList<Node> list){
+         Node head=list.get(0);
+         for(int i=1;i<list.size();i++){
+             head=merge2SortedLists(head,list.get(i));
+         }
+         return head;
+    }
     public static Node mergedLL(ArrayList<Node> list) {
         ArrayList<Integer> ans = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
@@ -58,7 +86,7 @@ public class MergeKSortedLists {
        list.add(head2);
        list.add(head3);
        list.add(head4);
-       Node mergedList=mergedLL(list);
+       Node mergedList=mergedLLBetter(list);
        printLL(mergedList);
     }
 }
