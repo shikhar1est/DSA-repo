@@ -14,7 +14,7 @@ package DynamicProgramming;
 //Base on this fact, we can create a 2D table (say table[][] which stores status of substring str[i . . . j] )
 // , and check for substrings with length from 1 to n. For each length find all
 // the substrings starting from each character i and find if it is a palindrome or not
-// using the above idea. The longest length for which a palindrome formed will be the required answer.
+// using the above idea. The longest length for which a palindrome formed will be the required answer
 
 
 
